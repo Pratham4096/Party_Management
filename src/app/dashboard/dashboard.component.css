@@ -1,0 +1,13 @@
+/* src/app/dashboard/dashboard.component.css */
+.spacer {
+    flex: 1 1 auto;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .add-party-card {
+    margin-top: 20px;
+  }
+  

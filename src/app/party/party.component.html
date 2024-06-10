@@ -1,0 +1,146 @@
+<section class="vh-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 text-black">
+        <div class="table-container">
+
+          <table mat-table [dataSource]="parties" class="mat-elevation-z8">
+
+            <!-- Button Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> Actions </th>
+              <td mat-cell *matCellDef="let party">
+                
+  
+                <button title="Click to Edit" mat-icon-button (click)="editParty(party)" class="btn btn-sm action-btn action-edit">
+                  <mat-icon>edit</mat-icon>
+                </button>
+  
+                <!-- <button mat-icon-button color="warn" (click)="deleteParty(party)">
+                  <i class="fa-light fa-delete-left"></i>
+                </button> -->
+                <button title="Click to Delete" mat-icon-button (click)="deleteParty(party)" class="btn btn-sm action-btn action-delete">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let party"> {{party.id}} </td>
+            </ng-container>
+  
+            <!-- <ng-container matColumnDef="bank_id">
+              <th mat-header-cell *matHeaderCellDef> Bank ID </th>
+              <td mat-cell *matCellDef="let party"> {{party.bank_id}} </td>
+            </ng-container> -->
+
+            <ng-container matColumnDef="info">
+              <th mat-header-cell *matHeaderCellDef> Bank and Address Info </th>
+              <td mat-cell *matCellDef="let party">
+                <button mat-icon-button (click)="openInfoDialog(party)">
+                  <mat-icon>info</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+  
+            <!-- <ng-container matColumnDef="address">
+              <th mat-header-cell *matHeaderCellDef> address </th>
+              <td mat-cell *matCellDef="let party"> {{party.address}} </td>
+            </ng-container> -->
+  
+            <!-- <ng-container matColumnDef="userid">
+              <th mat-header-cell *matHeaderCellDef> userid </th>
+              <td mat-cell *matCellDef="let party"> {{party.userid}} </td>
+            </ng-container> -->
+  
+            <ng-container matColumnDef="login_access">
+              <th mat-header-cell *matHeaderCellDef> login_access </th>
+              <td mat-cell *matCellDef="let party"> {{party.login_access}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let party"> {{party.name}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="company_name">
+              <th mat-header-cell *matHeaderCellDef> Company Name </th>
+              <td mat-cell *matCellDef="let party"> {{party.company_name}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="mobile_no">
+              <th mat-header-cell *matHeaderCellDef> Mobile No </th>
+              <td mat-cell *matCellDef="let party"> {{party.mobile_no}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="telephone_no">
+              <th mat-header-cell *matHeaderCellDef> Telephone No </th>
+              <td mat-cell *matCellDef="let party"> {{party.telephone_no}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="whatsapp_no">
+              <th mat-header-cell *matHeaderCellDef> WhatsApp No </th>
+              <td mat-cell *matCellDef="let party"> {{party.whatsapp_no}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef> Email </th>
+              <td mat-cell *matCellDef="let party"> {{party.email}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="remark">
+              <th mat-header-cell *matHeaderCellDef> Remark </th>
+              <td mat-cell *matCellDef="let party"> {{party.remark}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="date_of_birth">
+              <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
+              <td mat-cell *matCellDef="let party"> {{party.date_of_birth}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="anniversary_date">
+              <th mat-header-cell *matHeaderCellDef> Anniversary Date </th>
+              <td mat-cell *matCellDef="let party"> {{party.anniversary_date}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="gstin">
+              <th mat-header-cell *matHeaderCellDef> GSTIN </th>
+              <td mat-cell *matCellDef="let party"> {{party.gstin}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="pan_no">
+              <th mat-header-cell *matHeaderCellDef> PAN No </th>
+              <td mat-cell *matCellDef="let party"> {{party.pan_no}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="apply_tds">
+              <th mat-header-cell *matHeaderCellDef> Apply TDS </th>
+              <td mat-cell *matCellDef="let party"> {{party.apply_tds}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="credit_limit">
+              <th mat-header-cell *matHeaderCellDef> Credit Limit </th>
+              <td mat-cell *matCellDef="let party"> {{party.credit_limit}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="is_active">
+              <th mat-header-cell *matHeaderCellDef> Is Active </th>
+              <td mat-cell *matCellDef="let party"> {{party.is_active}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="image">
+              <th mat-header-cell *matHeaderCellDef> Image </th>
+              <td mat-cell *matCellDef="let party"> {{party.image}} </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+  
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+</section>

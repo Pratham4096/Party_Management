@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>{{ data.address ? 'Edit Address' : 'Add Address' }}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="addressForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Address Line 1</mat-label>
+      <input matInput formControlName="address_line_1">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Address Line 2</mat-label>
+      <input matInput formControlName="address_line_2">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Country</mat-label>
+      <input matInput formControlName="country">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>State</mat-label>
+      <input matInput formControlName="state">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>City</mat-label>
+      <input matInput formControlName="city">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Pincode</mat-label>
+      <input matInput formControlName="pincode">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onSave()" [disabled]="!addressForm.valid">Save</button>
+</div>

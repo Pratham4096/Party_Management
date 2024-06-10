@@ -1,0 +1,9 @@
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .mat-elevation-z8 {
+    min-width: 800px; /* Adjust this to the minimum width you want for your table */
+  }
+  

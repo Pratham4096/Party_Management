@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+    <span>Party Management Dashboard</span>
+    <span class="spacer"></span>
+    <button mat-button (click)="openAddParty()">Add</button>
+    <button mat-button (click)="logout()">Logout</button>
+</mat-toolbar>
+  
+  <div class="content">
+    <app-party></app-party> <!-- Include the PartyComponent to show the party list -->
+  </div>
+  
+<!-- <mat-card *ngIf="showAddPartyCard" class="add-party-card">
+    <mat-card-title>Add New Party</mat-card-title>
+    <mat-card-content>
+      <app-party-form (partyAdded)="onPartyAdded()"></app-party-form>
+      
+    </mat-card-content>
+</mat-card> -->
+
+
+
+
+  

@@ -1,0 +1,96 @@
+<!-- src/app/party-form/party-form.component.html -->
+<form [formGroup]="partyForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="partyForm.get('name')?.hasError('required') && partyForm.get('name')?.touched">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Company Name</mat-label>
+      <input matInput formControlName="company_name">
+      <mat-error *ngIf="partyForm.get('company_name')?.hasError('required') && partyForm.get('company_name')?.touched">
+        Company Name is required
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Mobile No</mat-label>
+      <input matInput formControlName="mobile_no">
+      <mat-error *ngIf="partyForm.get('mobile_no')?.hasError('required') && partyForm.get('mobile_no')?.touched">
+        Mobile No is required
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Telephone No</mat-label>
+      <input matInput formControlName="telephone_no">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>WhatsApp No</mat-label>
+      <input matInput formControlName="whatsapp_no">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf="partyForm.get('email')?.hasError('required') && partyForm.get('email')?.touched">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="partyForm.get('email')?.hasError('email') && partyForm.get('email')?.touched">
+        Enter a valid email
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Remark</mat-label>
+      <input matInput formControlName="remark">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Date of Birth</mat-label>
+      <input matInput  formControlName="date_of_birth" type="date">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Anniversary Date</mat-label>
+      <input matInput formControlName="anniversary_date" type="date">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>GSTIN</mat-label>
+      <input matInput formControlName="gstin">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>PAN No</mat-label>
+      <input matInput formControlName="pan_no">
+    </mat-form-field>
+  
+    <mat-checkbox formControlName="apply_tds">Apply TDS</mat-checkbox>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Credit Limit</mat-label>
+      <input matInput formControlName="credit_limit" type="number">
+      <mat-error *ngIf="partyForm.get('credit_limit')?.hasError('required') && partyForm.get('credit_limit')?.touched">
+        Credit Limit is required
+      </mat-error>
+      <mat-error *ngIf="partyForm.get('credit_limit')?.hasError('min') && partyForm.get('credit_limit')?.touched">
+        Credit Limit must be a positive number
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-checkbox formControlName="is_active">Is Active</mat-checkbox>
+
+    <div class="mb-3">
+        <label for="file">Upload Image*</label>
+        <input type="file" id="file" (change)="onFileChange($event)">
+      </div>
+    
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="!partyForm.valid">Add Party</button>
+  </form>
+  
