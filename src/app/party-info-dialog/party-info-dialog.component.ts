@@ -42,6 +42,7 @@ export class PartyInfoDialogComponent {
           } else {
             // Add new bank
             this.data.bankId.push(result);
+            console.log("success")
           }
         }
       });
