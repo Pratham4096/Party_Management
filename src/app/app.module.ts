@@ -13,8 +13,8 @@ import { PartyComponent } from './party/party.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { MatTableModule } from '@angular/material/table';
-import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule, _MatTableDataSource } from '@angular/material/table';
+import { MatSortHeader, MatSortModule } from '@angular/material/sort';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCommonModule } from '@angular/material/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -32,6 +32,8 @@ import { PartyFormDialogComponent } from './party-form-dialog/party-form-dialog.
 import { PartyInfoDialogComponent } from './party-info-dialog/party-info-dialog.component';
 import { BankFormComponent } from './bank-form/bank-form.component';
 import { AddressFormComponent } from './address-form/address-form.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -73,6 +75,9 @@ import { AddressFormComponent } from './address-form/address-form.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatCheckboxModule,
+    MatSortModule,
+    MatPaginatorModule,
+    
     
   ],
   providers: [ AuthService,

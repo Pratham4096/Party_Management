@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-bank-form',
@@ -13,6 +14,7 @@ export class BankFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<BankFormComponent>,
+    public authService:AuthService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.bankForm = this.fb.group({

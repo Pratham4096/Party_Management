@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef,MatDialog} from '@angular/material/dialog
 import { BankFormComponent } from '../bank-form/bank-form.component';
 import { AddressFormComponent } from '../address-form/address-form.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-party-info-dialog',
@@ -12,7 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class PartyInfoDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<PartyInfoDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any , private dialog: MatDialog ,private snackBar: MatSnackBar) {
+    @Inject(MAT_DIALOG_DATA) public data: any , private dialog: MatDialog ,private snackBar: MatSnackBar , private authService:AuthService) {
       if (!this.data.bankId) {
         this.data.bankId = [];
       }
@@ -35,7 +36,7 @@ export class PartyInfoDialogComponent {
             const index = this.data.bankId.indexOf(bank);
             if (index !== -1) {
               this.data.bankId[index] = result;
-              this.data.bankId.push(result);
+              
               
               this.snackBar.open('Bank Updated successfully', 'Close', { duration: 3000 });
             }
@@ -68,6 +69,22 @@ export class PartyInfoDialogComponent {
             // Add new address
             this.data.address.push(result);
           }
+        }
+      });
+    }
+
+    savePartyData() {
+      const partyData = {
+        bank: this.data.bankId,
+        address: this.data.address
+      };
+  
+      this.authService.patchParty(this.data.id, partyData).subscribe({
+        next: () => {
+          this.snackBar.open('Party data updated successfully', 'Close', { duration: 3000 });
+        },
+        error: (err) => {
+          this.snackBar.open('Error updating party data', 'Close', { duration: 3000 });
         }
       });
     }

@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Party Information</h1>
 <div mat-dialog-content>
   <h2>Bank Information</h2>
-  <button mat-button (click)="openBankForm()"style="margin-bottom: 10px !important; "><p style="color: blue;">Add Bank</p></button>
+  <button mat-button (click)="openBankForm()">Add Bank</button>
   <ul *ngIf="data.bankId.length > 0; else noBankData">
     <li *ngFor="let bank of data.bankId">
       <p>Bank Name: {{ bank.bank_name }}</p>
@@ -9,7 +9,9 @@
       <p>Account No: {{ bank.account_no }}</p>
       <p>IFSC Code: {{ bank.bank_ifsc_code }}</p>
       <p>Account Holder Name: {{ bank.account_holder_name }}</p>
-      <button mat-button (click)="openBankForm(bank)"  style="margin-bottom: 10px !important; "><p style="color: blue;">Edit</p></button>
+      <button mat-button (click)="openBankForm(bank)">Edit</button>
+      <button mat-button (click)="savePartyData()">Save</button>
+
     </li>
   </ul>
   <ng-template #noBankData>
@@ -17,8 +19,8 @@
   </ng-template>
 
   <h2>Address Information</h2>
-  <button mat-button (click)="openAddressForm()" style="margin-bottom: 10px !important; "><p style="color: blue;">Add Address</p></button>
-  <ul *ngIf="data.address.length > 0;">
+  <button mat-button (click)="openAddressForm()">Add Address</button>
+  <ul *ngIf="data.address.length > 0; else noAddressData">
     <li *ngFor="let address of data.address">
       <p>Address Line 1: {{ address.address_line_1 }}</p>
       <p>Address Line 2: {{ address.address_line_2 }}</p>
@@ -26,9 +28,13 @@
       <p>State: {{ address.state }}</p>
       <p>City: {{ address.city }}</p>
       <p>Pincode: {{ address.pincode }}</p>
-      <button mat-button (click)="openAddressForm(address)" style="margin-bottom: 10px !important; "><p style="color: blue;">Edit</p></button>
+      <button mat-button (click)="openAddressForm(address)">Edit</button>
+      <button mat-button (click)="savePartyData()">Save</button>
     </li>
   </ul>
+  <ng-template #noAddressData>
+    <p>No address information available.</p>
+  </ng-template>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Close</button>

@@ -38,6 +38,7 @@ export class PartyComponent implements OnInit {
     'is_active',
     'image'
   ];
+partyToEdit: any;
   
 
   constructor(private authService: AuthService, private snackBar: MatSnackBar, private dialog: MatDialog) {}

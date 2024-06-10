@@ -36,6 +36,10 @@ export class AuthService {
     return this.http.get<any>(`${this.apiUrl}/party/?id=${partyId}`);
   }
   
+  patchParty(partyId: number, party: any): Observable<any> {
+    return this.http.patch<any>(`${this.apiUrl}/party/?id=${partyId}`, party);
+  }
+  
 }
 
 export function formatDate(date: any): string {
